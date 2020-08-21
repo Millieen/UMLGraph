@@ -123,7 +123,7 @@ public class UmlGraphDoc {
 		UmlGraph.buildGraph(root, view, classDoc);
 		runGraphviz(opt.dotExecutable, outputFolder, classDoc.containingPackage().name(), classDoc.name(), root);
 		alterHtmlDocs(opt, outputFolder, classDoc.containingPackage().name(), classDoc.name(),
-			classDoc.name() + ".html", Pattern.compile(".*(Class|Interface|Enum) " + classDoc.name() + ".*") , root);
+			classDoc.name() + ".html", Pattern.compile(".*" + classDoc.name() +"(</H2>|</h2>).*") , root);
 	    } catch (Exception e) {
 		throw new RuntimeException("Error generating " + classDoc.name(), e);
 	    }
